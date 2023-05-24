@@ -19,7 +19,7 @@ module.exports = {
     },
     hot:false,
     open:true,
-    port: 9001,
+    port: 9006,
     devMiddleware:{
       writeToDisk: true,
     }
@@ -72,16 +72,11 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[contenthash].[ext]",
-              outputPath: "fonts/",
-            },
-          },
-        ],
+        test: /\.(svg|eot|woff|woff2|ttf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: './fonts/[name][ext]',
+        },
       },
 
       
