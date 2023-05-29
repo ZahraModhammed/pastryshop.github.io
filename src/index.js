@@ -11,3 +11,10 @@ console.log("hello, everyone");
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
+document.querySelectorAll('.add-to-cart-btn').forEach(item =>{
+  item.addEventListener("click", ()=>{
+     alert('تم اضافة المنتج الى عربة الشراء')
+  });
+});
