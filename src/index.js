@@ -18,3 +18,6 @@ document.querySelectorAll('.add-to-cart-btn').forEach(item =>{
      alert('تم اضافة المنتج الى عربة الشراء')
   });
 });
+
+
+document.getElementById('copyright').innerHTML = 'جميع الحقوق محفوظة'+ new Date().getFullYear();
