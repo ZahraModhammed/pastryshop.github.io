@@ -92,3 +92,58 @@ document.querySelectorAll('.kind-option input[type="radio"]').forEach(item => {
     })
      document.getElementById('price-for-all-products').innerHTML = totelPriceForAllProduct + '$'
   }
+
+
+  const citiesByConutry = {
+    sa:['جدة', 'الرياض'],
+    sy:['دمشق','حمص'],
+    mo:['الدار البيضاء', 'مركش'],
+    eg:['الاسكنداريه','القاهرة ']
+  }
+
+  document.querySelectorAll('select[name="cuntry"]').forEach( item =>{
+       item.addEventListener('change', () =>{
+           const conutry = item.value
+           
+           const cities = citiesByConutry[conutry]
+
+           document.querySelectorAll('#paymentcities option').forEach(option => option.remove())
+
+           const firstOption = document.createElement('option')
+           const optionText = document.createTextNode('اختر مدينة')
+           firstOption.appendChild(optionText)
+           firstOption.setAttribute('value', '')
+           firstOption.setAttribute('disabled', 'true')
+           firstOption.setAttribute('selected', 'ture')
+
+           const city_option = document.getElementById('paymentcities')
+           city_option.appendChild(firstOption)
+
+           cities.forEach(city =>{
+            const newOption = document.createElement('option')
+            const optionText = document.createTextNode(city)
+            newOption.appendChild(optionText)
+            newOption.setAttribute('value', city)
+            city_option.appendChild(newOption)
+           })
+       })
+  })
+
+
+  document.querySelectorAll('#form-checkout input[name ="payment-method"]').forEach(item =>{
+      item.addEventListener('change', () =>{
+          const paymentMedthod = item.value;
+
+          const creditCardInputs = document.querySelectorAll('#credit-card-info input ');
+
+          if(paymentMedthod === "on-delivery"){
+            creditCardInputs.forEach(input =>{
+               input.style.display= 'none'
+            })
+          }else{
+            creditCardInputs.forEach(input =>{
+              input.style.display= 'block'
+           })
+          }
+      })  
+  })
