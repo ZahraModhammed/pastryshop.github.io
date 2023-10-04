@@ -1,8 +1,8 @@
 window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './sass/custom.scss';
 import './css/style.css';
 import '@fortawesome/fontawesome-free/js/all';
-
+import './sass/style.scss';
 
 
 console.log("hello, everyone");
